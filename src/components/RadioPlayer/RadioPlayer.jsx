@@ -48,6 +48,7 @@ function RadioPlayer() {
                 </h3>
                 <p>{playingStation().slogan}</p>
               </div>
+              {playingError.current ? "Satsiun tidak tersedia" : ""}
             </div>
             <div className="radio__spectrum">Spectrum</div>
           </div>

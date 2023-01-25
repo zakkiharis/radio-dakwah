@@ -25,7 +25,7 @@ export const usePlayer = (stations) => {
   function play(index) {
     playingError.current = false;
     stop();
-
+    // console.log("Mashok", playingError.current);
     let sound;
     const soundIndex = index ?? playingIndex.current;
     const data = playlist.current[soundIndex];
