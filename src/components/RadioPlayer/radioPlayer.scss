@@ -1,0 +1,105 @@
+.radio {
+    background-color: rgb(22, 11, 11);
+    margin: 100px;
+    border: 2px solid black;
+
+    &__player{
+        display: flex;
+        
+    }
+
+    &__images {
+        background-color: red;
+        img {
+            width: 200px;
+            object-fit: fill;
+        }
+    }
+
+    &__control {
+        display: flex;
+        flex-direction: column;
+        flex: auto;
+        background-color: aqua;
+    }
+    &__play {
+        flex: 2;
+        background-color: blueviolet;
+
+        iconify-icon {
+            color: aqua;
+            cursor: pointer;
+        }
+    }
+    &__spectrum {
+        flex: 3;
+        background-color: blue;
+    }
+    &__desc {
+        flex: 1;
+        background-color: green;
+    }
+
+
+    &__list {
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        flex: auto;
+    }
+
+    &__header {
+        height: 30px;
+        background-color: aqua;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 20px;
+        font-weight: bold;
+        align-items: center;
+        p {
+            margin: 0px;
+        }
+    }
+    &__playlist {
+        flex: 1;
+        background-color: greenyellow;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        ul{
+            padding: 0px;
+            margin: 20px;
+        }
+        ul li {
+            list-style: none;
+            .list {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .list-name {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                p {
+                    margin: 0px 0px 0px 10px;
+                }
+
+                iconify-icon {
+                    cursor: pointer;
+                }
+                
+            }
+            h3 {
+                margin: 0px;
+            }
+        }
+    }
+    
+}

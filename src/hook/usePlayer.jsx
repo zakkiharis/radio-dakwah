@@ -9,10 +9,6 @@ export const usePlayer = (stations) => {
   const playingIndex = useRef(0);
   const playingError = useRef(false);
 
-  const playingStation = useEffect(() => {
-    playlist[playingIndex];
-  });
-
   stations.forEach((station) => {
     playlist.current.push({
       ...station,
@@ -20,15 +16,20 @@ export const usePlayer = (stations) => {
     });
   });
 
+  useEffect(() => {
+    console.log(playing.current);
+  }, [playing.current]);
+
+  const playingStation = () => playlist.current[playingIndex.current];
+
   function play(index) {
     playingError.current = false;
     stop();
 
     let sound;
     const soundIndex = index ?? playingIndex.current;
-    const data = playing.current[soundIndex];
-
-    if (data.Howl) {
+    const data = playlist.current[soundIndex];
+    if (data.howl) {
       sound = data.howl;
     } else {
       sound = new Howl({
@@ -57,7 +58,7 @@ export const usePlayer = (stations) => {
 
   function stop() {
     playing.current = false;
-    playingStation.current?.howl?.stop();
+    playingStation()?.howl?.stop();
   }
 
   function prev() {
