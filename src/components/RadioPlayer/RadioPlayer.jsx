@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import stasions from "../../data/stations.json";
 import { usePlayer } from "../../hook/usePlayer";
 import "./radioPlayer.scss";
+import AudioSpectrum from "react-audio-spectrum";
 
 import RadioBass from "../../assets/images/radio-bass.png";
 
@@ -47,15 +48,38 @@ function RadioPlayer() {
                 </h3>
                 <p>{playingStation().slogan}</p>
               </div>
-              {playingError ? "Satsiun tidak tersedia" : ""}
+              {playingError.current ? "Satsiun tidak tersedia" : ""}
             </div>
-            <div className="radio__spectrum">Spectrum</div>
+            <div className="radio__spectrum">
+              <audio
+                id="audio-element"
+                src={playingStation().url}
+                crossOrigin="anonymous"
+                autoPlay
+              ></audio>
+              <AudioSpectrum
+                id="audio-canvas"
+                height={200}
+                width={300}
+                audioId={"audio-element"}
+                capColor={"red"}
+                capHeight={2}
+                meterWidth={2}
+                meterCount={512}
+                meterColor={[
+                  { stop: 0, color: "#65069c" },
+                  { stop: 0.5, color: "#04333b" },
+                  { stop: 1, color: "red" },
+                ]}
+                gap={4}
+              />
+            </div>
           </div>
         </div>
         <div className="radio__list">
           <div className="radio__header">
-            <p>PLAYLISH</p>
-            <p>{playlist.length} Radio</p>
+            <p>PLAYLISH ({playlist.length} Radio)</p>
+            <p>Frekuensi</p>
           </div>
           <div className="radio__playlist">
             <ul>
