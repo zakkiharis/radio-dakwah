@@ -4,14 +4,11 @@
 
     &__player{
         display: flex;
-        
     }
 
-    &__images {
-        img {
-            width: 200px;
-            object-fit: fill;
-        }
+    img {
+        width: 200px;
+        object-fit: fill;
     }
 
     &__control {

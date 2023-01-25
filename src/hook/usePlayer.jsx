@@ -1,34 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Howl, Howler } from "howler";
 
 Howler.volume(1);
 
 export const usePlayer = (stations) => {
-  const playlist = useRef([]);
-  const playing = useRef(false);
-  const playingIndex = useRef(0);
-  const playingError = useRef(false);
+  const [playlist] = useState(stations);
+  const [playing, setPlaying] = useState(false);
+  const [playingIndex, setPlayingIndex] = useState(0);
+  const [playingError, setPlayingError] = useState(false);
 
-  stations.forEach((station) => {
-    playlist.current.push({
-      ...station,
-      howl: null,
-    });
-  });
-
-  useEffect(() => {
-    console.log(playing.current);
-  }, [playing.current]);
-
-  const playingStation = () => playlist.current[playingIndex.current];
+  const playingStation = () => playlist[playingIndex];
 
   function play(index) {
-    playingError.current = false;
+    setPlayingError(false);
     stop();
-    // console.log("Mashok", playingError.current);
+
     let sound;
-    const soundIndex = index ?? playingIndex.current;
-    const data = playlist.current[soundIndex];
+    const soundIndex = index ?? playingIndex;
+    const data = playlist[soundIndex];
     if (data.howl) {
       sound = data.howl;
     } else {
@@ -38,43 +27,40 @@ export const usePlayer = (stations) => {
         format: ["mp3", "aac"],
       });
 
-      playlist.current[soundIndex].howl = sound;
+      playlist[soundIndex].howl = sound;
     }
 
     sound.on("playerror", () => {
-      playingError.current = true;
-      playlist.current[soundIndex].howl = null;
+      setPlayingError(true);
+      playlist[soundIndex].howl = null;
     });
 
     sound.on("loaderror", () => {
-      playingError.current = true;
-      playlist.current[soundIndex].howl = null;
+      setPlayingError(true);
+      playlist[soundIndex].howl = null;
     });
 
     sound.play();
-    playing.current = true;
-    playingIndex.current = soundIndex;
+    setPlaying(true);
+    setPlayingIndex(soundIndex);
   }
 
   function stop() {
-    playing.current = false;
+    setPlaying(false);
     playingStation()?.howl?.stop();
   }
 
   function prev() {
-    play(playingIndex.current - 1);
+    play(setPlayingIndex(playingIndex - 1));
   }
 
   function next() {
-    play(playingIndex.current + 1);
+    play(setPlayingIndex(playingIndex + 1));
   }
 
   function togglePlay(index) {
-    const soundIndex = index ?? playingIndex.current;
-    if (
-      playing.current &&
-      (playlist.current[soundIndex].howl?.playing() || playingError.current)
-    ) {
+    const soundIndex = index ?? playingIndex;
+    if (playing && (playlist[soundIndex].howl?.playing() || playingError)) {
       stop();
     } else {
       play(soundIndex);

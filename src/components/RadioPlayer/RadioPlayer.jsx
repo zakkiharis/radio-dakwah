@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import stasions from "../../data/stations.json";
 import { usePlayer } from "../../hook/usePlayer";
@@ -22,13 +22,12 @@ function RadioPlayer() {
     <>
       <div className="radio">
         <div className="radio__player">
-          <div className="radio__images">
-            <img src={RadioBass} />
-          </div>
+          <img src={RadioBass} />
+
           <div className="radio__control">
             <div className="radio__play">
               <div onClick={() => togglePlay()}>
-                {playing.current ? (
+                {playing ? (
                   <iconify-icon
                     icon="ic:sharp-stop-circle"
                     width="40"
@@ -48,7 +47,7 @@ function RadioPlayer() {
                 </h3>
                 <p>{playingStation().slogan}</p>
               </div>
-              {playingError.current ? "Satsiun tidak tersedia" : ""}
+              {playingError ? "Satsiun tidak tersedia" : ""}
             </div>
             <div className="radio__spectrum">Spectrum</div>
           </div>
@@ -56,16 +55,16 @@ function RadioPlayer() {
         <div className="radio__list">
           <div className="radio__header">
             <p>PLAYLISH</p>
-            <p>{playlist.current.length} Radio</p>
+            <p>{playlist.length} Radio</p>
           </div>
           <div className="radio__playlist">
             <ul>
-              {playlist.current.map((list, index) => (
+              {playlist.map((list, index) => (
                 <li key={index}>
                   <div className="list">
                     <div className="list-name">
                       <div onClick={() => togglePlay(index)}>
-                        {playingIndex === index ? (
+                        {playingIndex === index && playing ? (
                           <iconify-icon
                             icon="ic:sharp-stop-circle"
                             width="30"
