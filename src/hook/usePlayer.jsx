@@ -62,7 +62,7 @@ export const usePlayer = (stations) => {
 
   function togglePlay(index) {
     const soundIndex = index ?? playingIndex;
-    console.log(playing, "dan", playlist[soundIndex].howl?.playing());
+
     if (playing && (playlist[soundIndex].howl?.playing() || playingError)) {
       stop();
     } else {
