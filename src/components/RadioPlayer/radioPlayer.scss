@@ -1,97 +1,95 @@
-.radio {
-    margin: 100px;
-    border: 2px solid black;
+.radio-player{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    overflow: hidden;
 
-    &__player{
-        display: flex;
+    button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        // color: #2D1339;
+        // color: #A876F4;
     }
 
-    img {
-        width: 200px;
-        object-fit: fill;
-    }
-
-    &__control {
+    .thumnails{
         display: flex;
-        flex-direction: column;
-        flex: auto;
-    }
-    &__play {
-        flex: 2;
-        display: flex;
-        align-items: center;
-
-        iconify-icon {
-            color: aqua;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        h3, p {
-            margin: 0px 10px;
+        justify-content: center;
+        img {
+            max-width: 250px;
         }
     }
-    &__spectrum {
-        flex: 4;
-    }
 
-
-    &__list {
-        height: 300px;
+    .playing {
         display: flex;
         flex-direction: column;
-        flex: auto;
-    }
-
-    &__header {
-        height: 30px;
-        display: flex;
-        justify-content: space-between;
-        padding: 0px 20px;
-        font-weight: bold;
         align-items: center;
+        margin-bottom: 20px;
+
         p {
-            margin: 0px;
+            margin: 5px 0px;
         }
     }
-    &__playlist {
-        flex: 1;
-        overflow-y: scroll;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+    .controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        &__button {
+            display: flex;
 
-        &::-webkit-scrollbar {
-            display: none;
+            .button-play{
+                color: #A876F4;
+            }
         }
+    }
 
-        ul{
-            padding: 0px;
+    .playlist{
+        border-radius: 20px 20px 0px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        top: 0px;
+        max-height: 450px;
+        background-color: #FFF2F0;
+
+        .header-list {
+            top: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             margin: 20px;
-        }
-        ul li {
-            list-style: none;
-            .list {
-                display: flex;
-                align-items: center;
-                flex-direction: row;
-                justify-content: space-between;
+            button {
+                margin-bottom: 15px;
             }
-            .list-name {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                p {
-                    margin: 0px 0px 0px 10px;
-                }
+            
 
-                iconify-icon {
-                    cursor: pointer;
-                }
-                
+        }
+
+        .body-list {
+            width: 100%;
+            overflow: scroll;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            
+            &::-webkit-scrollbar {
+                display: none;
             }
-            h3 {
-                margin: 0px;
+            ul>li {
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                margin: 10px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #5c1597;
+                color: #FFF2F0;
             }
         }
+
+        
+
+
     }
-    
 }

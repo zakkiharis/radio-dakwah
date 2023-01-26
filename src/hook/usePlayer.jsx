@@ -46,20 +46,23 @@ export const usePlayer = (stations) => {
   }
 
   function stop() {
-    setPlaying(false);
     playingStation()?.howl?.stop();
+    setPlaying(false);
   }
 
   function prev() {
-    play(setPlayingIndex(playingIndex - 1));
+    play(playingIndex - 1);
+    setPlayingIndex(playingIndex - 1);
   }
 
   function next() {
-    play(setPlayingIndex(playingIndex + 1));
+    play(playingIndex + 1);
+    setPlayingIndex(playingIndex + 1);
   }
 
   function togglePlay(index) {
     const soundIndex = index ?? playingIndex;
+    console.log(playing, "dan", playlist[soundIndex].howl?.playing());
     if (playing && (playlist[soundIndex].howl?.playing() || playingError)) {
       stop();
     } else {
