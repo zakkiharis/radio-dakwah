@@ -3,6 +3,7 @@
       "name": "Satu Radio",
       "slogan": "Bersatu di Atas Al-Quran dan Sunnah",
       "frequency": "105.4 FM",
+      "images": "radio-satu.png",
       "url": "https://assunnah.radio.yufid.com/;",
       "location": "Aikmel, Indonesia"
     },
@@ -10,6 +11,7 @@
       "name": "Radio Rodja",
       "slogan": "Menebar Cahaya Sunnah",
       "frequency": "756 AM",
+      "images": "radio-rodja.png",
       "url": "https://radioislamindonesia.com/rodja.mp3",
       "location": "Bogor, Indonesia"
     },
@@ -17,6 +19,7 @@
       "name": "Rodja Bandung",
       "slogan": "Menebar Cahaya Sunnah",
       "frequency": "104.3 FM",
+      "images": "radio-rodja-bandung.png",
       "url": "https://radioislamindonesia.com/rodja-bandung.mp3",
       "location": "Bandung, Indonesia"
     },
@@ -24,6 +27,7 @@
       "name": "Radio Muslim",
       "slogan": "Memurnikan Aqidah Menebarkan Sunnah",
       "frequency": "1467 AM",
+      "images": "radio-muslim.png",
       "url": "https://streaming.radiomuslim.com/;stream/1",
       "location": "Yogyakarta, Indonesia"
     },
@@ -31,6 +35,7 @@
       "name": "Hang",
       "slogan": "Radio Dakwah Islam",
       "frequency": "106 FM",
+      "images": "radio-hang.jpg",
       "url": "https://185.47.62.52:8000/;",
       "location": "Batam, Indonesia"
     },
@@ -38,6 +43,7 @@
       "name": "An-Nashihah",
       "slogan": "Sakinah dengan Sunnah",
       "frequency": "88.2 FM",
+      "images": "radio-annasihah.png",
       "url": "https://streaming.an-nashihah.com:8822/;",
       "location": "Makassar, Indonesia"
     },
@@ -45,6 +51,7 @@
       "name": "Radio Bass FM Salatiga",
       "slogan": "Mengenal Indahnya Islam",
       "frequency": "93.2 FM",
+      "images": "radio-bass.png",
       "url": "http://live.bassfm.id/;",
       "location": "Salatiga, Indonesia"
     }
