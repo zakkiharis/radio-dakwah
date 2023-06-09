@@ -27,12 +27,10 @@ function RadioPlayer() {
     <>
       <div className="radio-player">
         <header className="thumnails">
-          <div>
-            <img
-              src={`/radio-dakwah/img/${playingStation().images}`}
-              alt="thumbnails"
-            />
-          </div>
+          <img
+            src={`/radio-dakwah/img/${playingStation().images}`}
+            alt="thumbnails"
+          />
         </header>
         <div>
           <div className="playing">

@@ -32,14 +32,6 @@
       "location": "Yogyakarta, Indonesia"
     },
     {
-      "name": "Hang",
-      "slogan": "Radio Dakwah Islam",
-      "frequency": "106 FM",
-      "images": "radio-hang.jpg",
-      "url": "https://185.47.62.52:8000/;",
-      "location": "Batam, Indonesia"
-    },
-    {
       "name": "An-Nashihah",
       "slogan": "Sakinah dengan Sunnah",
       "frequency": "88.2 FM",
@@ -54,5 +46,13 @@
       "images": "radio-bass.png",
       "url": "https://bassfm.radio.yufid.com/;",
       "location": "Salatiga, Indonesia"
+    },
+    {
+      "name": "Hang",
+      "slogan": "Radio Dakwah Islam",
+      "frequency": "106 FM",
+      "images": "radio-hang.jpg",
+      "url": "https://185.47.62.52:8000/;",
+      "location": "Batam, Indonesia"
     }
   ]
